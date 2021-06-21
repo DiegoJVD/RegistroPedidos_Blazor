@@ -8,5 +8,10 @@ namespace RegistroPedidos_Blazor.Models
 {
     public class Suplidores
     {
+        [Key]
+        public int SuplidorId { get; set; }
+
+        [Required(ErrorMessage = "Es Obligatorio introducir el nombre")]
+        public string Nombres { get; set; }
     }
 }
