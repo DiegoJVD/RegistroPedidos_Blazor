@@ -26,9 +26,16 @@ namespace RegistroPedidos_Blazor.DAL
             modelBuilder.Entity<Suplidores>().HasData(
                 new Suplidores { SuplidorId = 1, Nombres = "Enel Almonte" }
                 );
+            base.OnModelCreating(modelBuilder);
+            modelBuilder.Entity<Suplidores>().HasData(
+                new Suplidores { SuplidorId = 2, Nombres = "Diego Valerio" }
+                );
 
             modelBuilder.Entity<Productos>().HasData(
                 new Productos { ProductoId = 1, Descripcion = "Audifonos", Costo = 500, Inventario = 100 }
+                );
+            modelBuilder.Entity<Productos>().HasData(
+                new Productos { ProductoId = 2, Descripcion = "cargadores", Costo = 500, Inventario = 100 }
                 );
         }
     }

@@ -15,7 +15,8 @@ namespace RegistroPedidos_Blazor.Migrations
                         .Annotation("Sqlite:Autoincrement", true),
                     Fecha = table.Column<DateTime>(type: "TEXT", nullable: false),
                     SuplidorId = table.Column<int>(type: "INTEGER", nullable: false),
-                    Monto = table.Column<decimal>(type: "TEXT", nullable: false)
+                    Monto = table.Column<decimal>(type: "TEXT", nullable: false),
+                    total = table.Column<float>(type: "REAL", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -30,7 +31,7 @@ namespace RegistroPedidos_Blazor.Migrations
                         .Annotation("Sqlite:Autoincrement", true),
                     Descripcion = table.Column<string>(type: "TEXT", nullable: false),
                     Costo = table.Column<decimal>(type: "TEXT", nullable: false),
-                    Inventario = table.Column<double>(type: "REAL", nullable: false)
+                    Inventario = table.Column<float>(type: "REAL", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -57,8 +58,9 @@ namespace RegistroPedidos_Blazor.Migrations
                     Id = table.Column<int>(type: "INTEGER", nullable: false)
                         .Annotation("Sqlite:Autoincrement", true),
                     OrdenId = table.Column<int>(type: "INTEGER", nullable: false),
-                    Cantidad = table.Column<double>(type: "REAL", nullable: false),
-                    Costo = table.Column<decimal>(type: "TEXT", nullable: false)
+                    Cantidad = table.Column<float>(type: "REAL", nullable: false),
+                    Costo = table.Column<decimal>(type: "TEXT", nullable: false),
+                    ProductoId = table.Column<int>(type: "INTEGER", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -74,12 +76,22 @@ namespace RegistroPedidos_Blazor.Migrations
             migrationBuilder.InsertData(
                 table: "Productos",
                 columns: new[] { "ProductoId", "Costo", "Descripcion", "Inventario" },
-                values: new object[] { 1, 500m, "Audifonos", 100.0 });
+                values: new object[] { 1, 500m, "Audifonos", 100f });
+
+            migrationBuilder.InsertData(
+                table: "Productos",
+                columns: new[] { "ProductoId", "Costo", "Descripcion", "Inventario" },
+                values: new object[] { 2, 500m, "cargadores", 100f });
 
             migrationBuilder.InsertData(
                 table: "Suplidores",
                 columns: new[] { "SuplidorId", "Nombres" },
                 values: new object[] { 1, "Enel Almonte" });
+
+            migrationBuilder.InsertData(
+                table: "Suplidores",
+                columns: new[] { "SuplidorId", "Nombres" },
+                values: new object[] { 2, "Diego Valerio" });
 
             migrationBuilder.CreateIndex(
                 name: "IX_OrdenesDetalle_OrdenId",

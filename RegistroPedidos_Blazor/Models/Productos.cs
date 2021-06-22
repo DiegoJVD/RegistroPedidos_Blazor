@@ -17,6 +17,6 @@ namespace RegistroPedidos_Blazor.Models
        [Range(minimum: 0.0, maximum: 10000000.0, ErrorMessage = "Inserte un costo válido")]
         public decimal Costo { get; set; }
 
-        public Double Inventario { get; set; }
+        public float Inventario { get; set; }
     }
 }

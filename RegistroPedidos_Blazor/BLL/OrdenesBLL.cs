@@ -136,5 +136,24 @@ namespace RegistroPedidos_Blazor.BLL
             return found;
         }
 
+        public static List<Ordenes> GetList()
+        {
+            List<Ordenes> lista = new List<Ordenes>();
+            Contexto contexto = new Contexto();
+            try
+            {
+                lista = contexto.Ordenes.ToList();
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+            finally
+            {
+                contexto.Dispose();
+            }
+            return lista;
+        }
+
     }
 }

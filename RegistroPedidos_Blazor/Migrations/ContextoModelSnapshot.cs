@@ -31,6 +31,9 @@ namespace RegistroPedidos_Blazor.Migrations
                     b.Property<int>("SuplidorId")
                         .HasColumnType("INTEGER");
 
+                    b.Property<float>("total")
+                        .HasColumnType("REAL");
+
                     b.HasKey("OrdenId");
 
                     b.ToTable("Ordenes");
@@ -42,13 +45,16 @@ namespace RegistroPedidos_Blazor.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
-                    b.Property<double>("Cantidad")
+                    b.Property<float>("Cantidad")
                         .HasColumnType("REAL");
 
                     b.Property<decimal>("Costo")
                         .HasColumnType("TEXT");
 
                     b.Property<int>("OrdenId")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<int>("ProductoId")
                         .HasColumnType("INTEGER");
 
                     b.HasKey("Id");
@@ -71,7 +77,7 @@ namespace RegistroPedidos_Blazor.Migrations
                         .IsRequired()
                         .HasColumnType("TEXT");
 
-                    b.Property<double>("Inventario")
+                    b.Property<float>("Inventario")
                         .HasColumnType("REAL");
 
                     b.HasKey("ProductoId");
@@ -84,7 +90,14 @@ namespace RegistroPedidos_Blazor.Migrations
                             ProductoId = 1,
                             Costo = 500m,
                             Descripcion = "Audifonos",
-                            Inventario = 100.0
+                            Inventario = 100f
+                        },
+                        new
+                        {
+                            ProductoId = 2,
+                            Costo = 500m,
+                            Descripcion = "cargadores",
+                            Inventario = 100f
                         });
                 });
 
@@ -107,6 +120,11 @@ namespace RegistroPedidos_Blazor.Migrations
                         {
                             SuplidorId = 1,
                             Nombres = "Enel Almonte"
+                        },
+                        new
+                        {
+                            SuplidorId = 2,
+                            Nombres = "Diego Valerio"
                         });
                 });
 

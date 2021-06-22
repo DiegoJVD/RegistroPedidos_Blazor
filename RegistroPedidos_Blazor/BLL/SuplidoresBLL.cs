@@ -135,5 +135,24 @@ namespace RegistroPedidos_Blazor.BLL
 
             return found;
         }
+
+        public static List<Suplidores> GetList()
+        {
+            List<Suplidores> lista = new List<Suplidores>();
+            Contexto contexto = new Contexto();
+            try
+            {
+                lista = contexto.Suplidores.ToList();
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+            finally
+            {
+                contexto.Dispose();
+            }
+            return lista;
+        }
     }
 }

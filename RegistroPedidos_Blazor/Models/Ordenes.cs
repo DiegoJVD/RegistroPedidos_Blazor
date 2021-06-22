@@ -22,5 +22,12 @@ namespace RegistroPedidos_Blazor.Models
 
         [ForeignKey("OrdenId")]
         public List<OrdenesDetalle> Detalle { get; set; } = new List<OrdenesDetalle>();
+
+        public float total { get; set; }
+
+        public Ordenes()
+        {
+            Fecha = DateTime.Now;
+        }
     }
 }
